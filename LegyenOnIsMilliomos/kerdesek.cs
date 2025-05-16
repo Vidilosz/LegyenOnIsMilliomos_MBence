@@ -18,5 +18,13 @@ namespace LegyenOnIsMilliomos
         public void BetoltKerdesekFajlbol(string filepath)
         {
         }
+        public Kerdes VeletlenKerdes(string kategoria)
+        {
+            var kategoriabeliek = MindenKerdes.Where(k => k.Kategoria == kategoria).ToList();
+            if (kategoriabeliek.Count == 0) return null;
+
+            Random rnd = new Random();
+            return kategoriabeliek[rnd.Next(kategoriabeliek.Count)];
+        }
     }
 }
